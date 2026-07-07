@@ -12,7 +12,7 @@ let userEmail;
 const id = Symbol('123')
 const anotherId = Symbol('123')
 
-console.log(id === anotherId);
+//console.log(id === anotherId);
 
 // const bigNumber = 3456543576654356754n
 
@@ -32,7 +32,7 @@ const myFunction = function(){
     console.log("Hello world");
 }
 
-console.log(typeof anotherId);
+//console.log(typeof anotherId);
 
 /*
 Return type of variable in javascript
@@ -51,3 +51,21 @@ Object => object
 Function => function
 */
 // https://262.ecma-international.org/5.1/#sec-11.4.3
+
+// non primitive are heap dependent and primitive are stack dependent.
+
+let myworld = "hello world";
+myworld1= myworld;
+
+console.log(myworld);
+console.log(myworld1);
+
+let world = {
+    name: "arham",
+    age: 18,
+}
+
+let world1 = world;
+world1.name = "hitesh";
+console.log(world.name);
+console.log(world1.name);
