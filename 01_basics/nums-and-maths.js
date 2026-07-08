@@ -44,3 +44,6 @@ console.log(Math.floor(Math.random() * (max - min + 1)+min));
 // max - min gives total possible numbers
 // max - min + 1, here +1 ensures that top limit reaches
 // 0 < number < 1 -> 0 < number < 6
+
+
+////NOTE Math is a object and it has only methods like Math.floor(), Math.random() etc and it cannot declare an object like var1 = new Math() 
