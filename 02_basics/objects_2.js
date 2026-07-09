@@ -109,9 +109,9 @@ let user = {
     name: "Arham",
 };
 //JSON
-{
-    "name": "Arham"
-}
+// {
+//     "name": "Arham"
+// }
 
 // API: A way for different software applications to communicate and exchange data.
 //normally API returns data in JSON format. 
