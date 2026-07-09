@@ -83,5 +83,38 @@ let obj ={
 obj.greet(); //calling the function inside object;
 console.log(obj.array); 
 
+//DESTRUCTURING
+let course =
+{
 
+name:"js",
+courseInstructor: "hitesh",
+age: 19
+}
+
+//console.log(course.name); i have to repeat it if want to use multiple times
+
+//v.v.v important
+const {courseInstructor: instructor} = course //destructuring the object and assigning the value of courseInstructor to instructor name
+
+console.log(instructor); //now i can use it without repeating the object name
+
+const {name,age} = course;
+console.log(name, age); 
+
+
+// JSON: A text format for storing and exchanging data.
+//JS object
+let user = {
+    name: "Arham",
+};
+//JSON
+{
+    "name": "Arham"
+}
+
+// API: A way for different software applications to communicate and exchange data.
+//normally API returns data in JSON format. 
+// JS --JSON--> API --> Server
+// JS <--JSON-- API <-- Server
 
