@@ -29,7 +29,7 @@ const user = {
 //     console.log(this.username); same
 // }
 
-//ARROW FUNCTION
+//ARROW FUNCTION is a shorter syntax for writing functions 
 //() => {} 
 const chai =  () => {
     let username = "hitesh"
