@@ -1,0 +1,170 @@
+//DOCUMENT OBJECT MODEL
+<!DOCTYPE html>
+<!-- start of document -->
+<html lang="en">
+    <head>
+       <meta charset="UTF-8"><!--attribute-->
+
+       <title>DOCUMENT</title>
+    </head>
+    <body>
+        <div class="bg-black">
+            <hi class ="heading">
+             DOM LEARNING
+            </hi>
+            <p>
+             arararararara
+            </p>
+        </div>
+
+    </body>
+</html>
+
+<!-- // ==============================
+// DOCUMENT OBJECT MODEL (DOM)
+// ==============================
+
+// What is the DOM?
+// DOM stands for Document Object Model.
+// It is a tree-like representation of an HTML webpage.
+// The browser creates the DOM after reading the HTML file.
+
+// HTML Example:
+//
+// <html>
+//     <body>
+//         <h1>Hello</h1>
+//         <p>Welcome</p>
+//     </body>
+// </html> -->
+<!-- //
+// Browser converts it into:
+//
+// Document
+//    |
+//   html
+//    |
+//   body
+//   /   \
+// h1     p
+//
+// Every HTML element becomes a node (object) in the DOM.
+
+
+// ==============================
+// WHY DO WE NEED THE DOM?
+// ==============================
+
+// HTML only defines the structure of a webpage.
+// Once the page loads, HTML itself cannot change.
+//
+// The DOM allows JavaScript to:
+// - Find HTML elements
+// - Read their content
+// - Change their content
+// - Change styles
+// - Create new elements
+// - Delete elements
+// - Respond to user actions (clicks, typing, etc.)
+
+
+// ==============================
+// HOW HTML, CSS, JAVASCRIPT & DOM WORK TOGETHER
+// ==============================
+
+// HTML  -> Creates the webpage structure
+// CSS   -> Styles the webpage
+// DOM   -> Represents the webpage as objects
+// JavaScript -> Uses the DOM to interact with those objects
+
+// Flow:
+//
+// HTML File
+//      |
+//      V
+// Browser reads HTML
+//      |
+//      V
+// Browser creates the DOM
+//      |
+//      V
+// JavaScript accesses and modifies DOM objects
+
+
+// ==============================
+// IMPORTANT NOTE
+// ==============================
+
+// JavaScript DOES NOT convert HTML into objects.
+//
+// The BROWSER converts HTML into DOM objects.
+//
+// JavaScript simply uses those objects.
+
+
+// ==============================
+// WHY ARE THEY OBJECTS?
+// ==============================
+
+// Every HTML element becomes an object.
+//
+// Example:
+//
+// <h1 id="title">Hello</h1>
+//
+// becomes something conceptually like:
+//
+// {
+//     tagName: "H1",
+//     id: "title",
+//     textContent: "Hello"
+// }
+//
+// Since it is an object, JavaScript can access its
+// properties and methods.
+
+
+// ==============================
+// EXAMPLE
+// ==============================
+
+// HTML:
+//
+// <h1 id="heading">Hello</h1>
+
+// JavaScript:
+//
+// const heading = document.getElementById("heading");
+//
+// "heading" is now a DOM object.
+//
+// We can access its properties:
+//
+// heading.textContent
+// heading.id
+//
+// We can call its methods:
+//
+// heading.remove()
+// heading.setAttribute()
+
+
+// ==============================
+// KEY IDEA
+// ==============================
+
+// HTML creates the webpage.
+//
+// Browser converts HTML into DOM objects.
+//
+// JavaScript communicates with those DOM objects
+// to make the webpage interactive.
+
+
+// ==============================
+// ONE-LINE DEFINITION
+// ==============================
+
+// The DOM is the browser's object representation
+<!-- // of an HTML webpage that allows JavaScript to
+// access, modify, and control web page elements. --> --> -->
