@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur code </title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    
+</body>
+<script>
+//     const div = document.createElement('div');
+//    // console.log(div);
+//     div.className ="main";
+//     div.id = Math.round(Math.random()*10 +1)
+//     div.setAttribute("title","generated title");
+//     div.style.backgroundColor = "green";
+//     // div.innerText = "arham";
+//     const addText = document.createTextNode("chai aur code");
+//     div.appendChild(addText);
+//     document.body.appendChild(div);
+
+
+    const ul = document.createElement("ul");
+    ul.className="main";
+    ul.id="01";
+    
+    const fruits = ["apple", "mango", "orange"];
+    //const ol = document.querySelector("ul");
+    fruits.forEach(function(fruit){
+
+        const li = document.createElement("li");
+        li.innerText = fruit;
+        ul.appendChild(li);
+        
+    })
+
+    //cant do this cuz ul is a single HTML-elemnt 
+    // ul.forEach((list)=>{
+    //     list.style.color = "green";
+    //     list.backgroundColor="orange";
+    // })
+
+
+//     createElement()
+//         ↓
+// Element exists only in memory
+//         ↓
+// appendChild()
+//         ↓
+// Element becomes part of the DOM
+//         ↓
+// querySelector() / querySelectorAll() can now find it
+
+    document.body.appendChild(ul);
+
+
+   //option 1
+//    const arrayUl = Array.from(ul.children);
+//    arrayUl.forEach((list)=>{
+//     list.style.color = "red";
+//    // list.style.backgroundColor="gray";
+// })
+
+
+//option 2
+const lists = document.querySelectorAll("li");
+
+lists.forEach((list) => {
+    list.style.color = "green";
+    list.style.backgroundColor = "orange";
+});
+
+
+</script>
+</html>
+
+<!-- // ===========================================================
+//                CREATING NEW ELEMENTS (DOM)
+// ===========================================================
+
+// createElement()           -> Creates a new HTML-element in memory.
+// Syntax                    -> document.createElement("tagName").
+// Note                      -> The element is NOT visible until added to the DOM.
+
+
+// ======================= CREATE ELEMENT =======================
+
+// const div = document.createElement("div");
+// Creates:
+// <div></div>
+
+
+
+// ======================= ADD CONTENT =======================
+
+// textContent               -> Adds plain text to an element.
+// innerText                 -> Adds only visible text.
+// innerHTML                 -> Adds HTML content inside an element.
+
+
+// ======================= ADD ATTRIBUTES =======================
+
+// element.id                -> Sets the id.
+// element.className         -> Sets the class.
+// setAttribute()            -> Creates or updates any attribute.
+
+
+// ======================= STYLE ELEMENT =======================
+
+// element.style.color
+// element.style.backgroundColor
+// element.style.fontSize
+// element.style.padding
+// element.style.margin
+// etc.
+
+
+// ======================= ADD TO DOM =======================
+
+// appendChild()             -> Adds the new element as the LAST child.
+// append()                  -> Adds elements or text at the end.
+// prepend()                 -> Adds element as the FIRST child.
+// before()                  -> Inserts element before another element.
+// after()                   -> Inserts element after another element.
+
+
+// ======================= REMOVE ELEMENT =======================
+
+// remove()                  -> Deletes an element from the DOM.
+
+
+// ======================= COMMON WORKFLOW =======================
+
+// 1. Create an element.
+// const div = document.createElement("div");
+
+// 2. Add content.
+// div.textContent = "Hello";
+
+// 3. Add id/class.
+// div.id = "box";
+// div.className = "container";
+
+// 4. Style it.
+// div.style.color = "blue";
+
+// 5. Add it to the webpage.
+// document.body.appendChild(div);
+
+
+// ======================= IMPORTANT NOTES =======================
+
+// createElement() only creates the element.
+// It DOES NOT display it on the webpage.
+
+// appendChild(), append(), prepend(), before(), or after()
+// are required to insert the element into the DOM.
+
+// Once added to the DOM, the element becomes visible
+// and can be interacted with like any other HTML element.
+
+
+// ======================= EXAMPLE =======================
+
+// const div = document.createElement("div");
+// div.textContent = "Hello World";
+// div.className = "box";
+// div.style.color = "red";
+// document.body.appendChild(div);
+
+
+
+// ======================= ONE-LINE SUMMARY =======================
+
+// createElement() -> Create.
+// textContent     -> Add text.
+// id/className    -> Add attributes.
+// style           -> Design the element.
+// appendChild()   -> Display it on the webpage.
+// remove()        -> Delete it from the webpage. -->

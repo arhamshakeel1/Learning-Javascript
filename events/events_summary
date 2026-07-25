@@ -1,0 +1,37 @@
+<!-- //
+// 1. MOUSE EVENTS
+// 
+
+element.addEventListener('click', () => {});        // Fires when an element is clicked
+element.addEventListener('dblclick', () => {});     // Fires on a double click
+element.addEventListener('mousedown', () => {});    // Fires when the mouse button is pressed down
+element.addEventListener('mouseup', () => {});      // Fires when the mouse button is released
+element.addEventListener('mouseenter', () => {});   // Fires when mouse enters the element (no bubbling)
+element.addEventListener('mouseleave', () => {});   // Fires when mouse leaves the element (no bubbling)
+element.addEventListener('mousemove', () => {});    // Fires repeatedly as mouse moves over element
+
+// ==========================================
+// 2. KEYBOARD EVENTS
+// ==========================================
+
+element.addEventListener('keydown', () => {});      // Fires when a key is pressed down
+element.addEventListener('keyup', () => {});        // Fires when a key is released
+
+// ==========================================
+// 3. FORM & INPUT EVENTS
+// ==========================================
+
+form.addEventListener('submit', () => {});          // Fires when a form is submitted
+input.addEventListener('input', () => {});          // Fires immediately every time the value changes
+input.addEventListener('change', () => {});         // Fires when value changes AND input loses focus
+element.addEventListener('focus', () => {});        // Fires when an element gets focus (e.g., clicked input)
+element.addEventListener('blur', () => {});         // Fires when an element loses focus
+
+// ==========================================
+// 4. DOCUMENT & WINDOW EVENTS
+// ==========================================
+
+window.addEventListener('DOMContentLoaded', () => {}); // Fires when HTML is fully loaded and parsed
+window.addEventListener('load', () => {});             // Fires when full page (including images) is loaded
+window.addEventListener('resize', () => {});           // Fires when browser window size changes
+window.addEventListener('scroll', () => {});           // Fires when user scrolls up or down -->

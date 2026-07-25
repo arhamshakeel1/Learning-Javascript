@@ -1,0 +1,105 @@
+<!-- // ======================= DOM SELECTORS =======================
+
+// getElementById()          -> Selects one element by its unique id.
+ // getElementsByClassName()  -> Selects all elements with a class (HTMLCollection).
+ // getElementsByTagName()    -> Selects all elements with a tag (HTMLCollection).
+ // querySelector()           -> Selects the first matching CSS selector.
+ // querySelectorAll()        -> Selects all matching CSS selectors (NodeList).
+
+
+// ======================= CSS SELECTORS =======================
+
+// #id                        -> Select by id.
+// .class                     -> Select by class.
+// tagName                    -> Select by tag.
+// parent child               -> Select child inside parent.
+// parent > child             -> Select direct child only.
+// .class1.class2             -> Element must have both classes.
+// [attribute="value"]        -> Select by attribute.
+
+
+// ======================= HTMLCollection =======================
+
+// Returned by getElementsByClassName() and getElementsByTagName().
+// Looks like an array but is NOT an array.
+// Supports indexing (collection[0]).
+// Has .length property.
+// Does NOT support forEach().
+// LIVE collection (updates automatically when DOM changes).
+
+
+// ======================= NodeList =======================
+
+// Returned by querySelectorAll().
+// Looks like an array but is NOT an array.
+// Supports indexing (list[0]).
+// Has .length property.
+// Supports forEach().
+// STATIC collection (doesn't update automatically).
+
+
+// ======================= LOOPING =======================
+
+// for loop                  -> Works with Arrays, NodeList and HTMLCollection.
+// for...of                  -> Loops through values of Arrays, NodeLists and HTMLCollections.
+// forEach()                 -> Works on Arrays and NodeList (NOT HTMLCollection).
+// Array.from()              -> Converts HTMLCollection into an Array.
+
+
+// ======================= COMMON DOM PROPERTIES =======================
+
+// textContent               -> Gets/Sets all text inside an element.
+// innerText                 -> Gets/Sets only visible text.
+// innerHTML                 -> Gets/Sets HTML inside an element.
+
+
+// ======================= STYLING =======================
+
+// style.color               -> Changes text color.
+// style.backgroundColor     -> Changes background color.
+// style.fontSize            -> Changes font size.
+// style.display             -> Show/Hide elements.
+
+
+// ======================= CLASSES =======================
+
+// classList.add()           -> Adds a class.
+// classList.remove()        -> Removes a class.
+// classList.toggle()        -> Adds if absent, removes if present.
+// classList.contains()      -> Checks if a class exists.
+
+
+// ======================= ATTRIBUTES =======================
+
+// getAttribute()            -> Gets an attribute value.
+// setAttribute()            -> Creates/Updates an attribute.
+// removeAttribute()         -> Removes an attribute.
+
+
+// ======================= EVENTS =======================
+
+// addEventListener()        -> Runs code when an event occurs (click, input, etc.).
+
+
+// ======================= DOM TRAVERSAL =======================
+
+// parentElement             -> Parent element.
+// children                  -> All child elements.
+// firstElementChild         -> First child element.
+// lastElementChild          -> Last child element.
+// nextElementSibling        -> Next sibling element.
+// previousElementSibling    -> Previous sibling element.
+
+
+// ======================= REMOVE ELEMENT =======================
+
+// remove()                  -> Deletes an element from the DOM.
+
+
+// ======================= IMPORTANT NOTES =======================
+
+// querySelector()           -> Returns ONE element (first match).
+// querySelectorAll()        -> Returns a NodeList.
+// HTMLCollection            -> Live collection.
+// NodeList                  -> Static collection.
+// Most used selectors       -> querySelector() and querySelectorAll(). -->

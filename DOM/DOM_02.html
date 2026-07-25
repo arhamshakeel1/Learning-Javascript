@@ -1,0 +1,308 @@
+<body>
+
+    <h1 id="title" class="heading">
+        DOM Learning
+    </h1>
+
+    <h2 class="heading">Heading 2</h2>
+
+    <p class="text">
+        Paragraph 1
+    </p>
+
+    <p class="text">
+        Paragraph 2
+    </p>
+     
+    <ul>
+        <li class="item">Apple</li>
+        <li class="item">Banana</li>
+        <li class="item">Orange</li>
+    </ul>
+
+</body>
+<!-- 
+// ===========================================================
+// 1. getElementById()
+// ===========================================================
+
+// Selects ONE element using its unique id.
+
+const title = document.getElementById("title");
+
+// HTML:
+// <h1 id="title">Hello</h1>
+
+
+
+// ===========================================================
+// 2. getElementsByClassName()
+// ===========================================================
+
+// Selects ALL elements with the given class.
+//
+// Returns:
+// HTMLCollection (LIVE)
+
+const headings = document.getElementsByClassName("heading");
+
+
+
+// ===========================================================
+// 3. getElementsByTagName()
+// ===========================================================
+
+// Selects ALL elements with the given tag.
+//
+// Returns:
+// HTMLCollection (LIVE)
+
+const paragraphs = document.getElementsByTagName("p");
+
+
+
+// ===========================================================
+// 4. querySelector()
+// ===========================================================
+
+// Returns ONLY the FIRST matching element.
+//
+// Most commonly used selector.
+
+document.querySelector("#title");     // id
+document.querySelector(".heading");   // class
+document.querySelector("p");          // tag
+document.querySelector("button");     // tag
+
+
+
+// ===========================================================
+// 5. querySelectorAll()
+// ===========================================================
+
+// Returns ALL matching elements.
+//
+// Returns:
+// NodeList (STATIC)
+
+document.querySelectorAll(".item");
+
+
+//you can use methods when you have an object!!!
+// ===========================================================
+// CSS SELECTORS USED INSIDE querySelector()
+// ===========================================================
+
+// #  -> id
+document.querySelector("#title");
+
+// . -> class
+document.querySelector(".heading");
+
+// tag
+document.querySelector("h1");
+
+// descendant
+document.querySelector("ul li");
+
+// direct child
+document.querySelector("div > p");
+
+// multiple classes
+document.querySelector(".box.red");
+
+// attribute selector
+document.querySelector('input[type="text"]');
+
+
+
+// ===========================================================
+// HTMLCollection
+// ===========================================================
+
+// Returned by:
+//
+// getElementsByClassName()
+// getElementsByTagName()
+
+const items = document.getElementsByClassName("item");
+
+// Features:
+//
+// ✔ Looks like an array
+// ✔ Access by index
+// ✔ Has .length
+// ✘ NOT an actual array
+// ✘ No forEach()
+// ✔ LIVE (updates automatically)
+
+console.log(items[0]);
+console.log(items.length);
+
+
+
+// Loop through HTMLCollection
+
+for (let i = 0; i < items.length; i++) {
+
+    console.log(items[i]);
+
+}
+
+
+
+// Convert HTMLCollection into Array
+
+const arr = Array.from(items);
+
+arr.forEach((item)=>{
+
+    console.log(item);
+
+});
+
+
+
+// ===========================================================
+// NodeList
+// ===========================================================
+
+// Returned by:
+//
+// querySelectorAll()
+
+const listItems = document.querySelectorAll(".item");
+
+// Features:
+//
+// ✔ Looks like an array
+// ✔ Access by index
+// ✔ Has .length
+// ✔ Supports forEach()
+// ✘ Not a true array
+// ✘ STATIC (doesn't update automatically)
+
+listItems.forEach((item)=>{
+
+    console.log(item);
+
+});
+
+
+
+// ===========================================================
+// HTMLCollection vs NodeList
+// ===========================================================
+
+// HTMLCollection
+//
+// Returned By:
+// getElementsByClassName()
+// getElementsByTagName()
+//
+// Live:
+// YES
+//
+// forEach():
+// NO
+
+
+// NodeList
+//
+// Returned By:
+// querySelectorAll()
+//
+// Live:
+// NO (Static)
+//
+// forEach():
+// YES
+
+
+
+// ===========================================================
+// MOST IMPORTANT SELECTORS
+// ===========================================================
+
+// Select by id
+const title = document.querySelector("#title");
+
+// Select by class
+const heading = document.querySelector(".heading");
+
+// Select by tag
+const paragraph = document.querySelector("p");
+
+// Select all matching elements
+const items = document.querySelectorAll(".item");
+
+
+
+// ===========================================================
+// AFTER SELECTING AN ELEMENT
+// ===========================================================
+
+// Once an element is selected,
+// you can do almost anything with it.
+
+const element = document.querySelector("#title");
+
+
+
+// ==============================
+// Read Content
+// ==============================
+
+element.textContent;
+element.innerText;
+element.innerHTML;
+
+
+
+// ==============================
+// Change Content
+// ==============================
+
+element.textContent = "Hello";
+
+element.innerHTML = "<span>Hello</span>";
+
+
+
+// ==============================
+// Styling
+// ==============================
+
+element.style.color = "red";
+
+element.style.backgroundColor = "yellow";
+
+element.style.fontSize = "40px";
+
+element.style.display = "none";
+
+
+
+// ==============================
+// Classes
+// ==============================
+
+element.classList.add("active");
+
+element.classList.remove("active");
+
+element.classList.toggle("dark");
+
+element.classList.contains("heading");
+
+
+
+// ==============================
+// Attributes
+// ==============================
+
+element.getAttribute("id");
+
+element.setAttribute("id", "newTitle");
+
+element.removeAttribute("id"); -->
