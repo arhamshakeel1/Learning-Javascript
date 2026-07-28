@@ -1,0 +1,455 @@
+// // Summary:
+// // There are two types of arrays: holey arrays and continuous arrays. These arrays can contain three types of elements: SMI (Small Integer), Packed Element, and Double.
+
+// // 1. **Holey Array**: A holey array is an array that contains missing or empty elements. For example, [1, 2, , 4] is a holey array because it has a missing element. Holey arrays are less optimized for performance.
+
+// // 2. **Continuous Array**: A continuous array is an array that does not contain missing or empty elements. For example, [1, 2, 3, 4] is a continuous array because it has no missing elements. Continuous arrays are more optimized for performance.
+
+// // In terms of optimization, continuous arrays are more efficient and optimized for various operations compared to holey arrays.
+
+// // /*
+// ====================================================
+//         PACKED vs HOLEY ARRAYS (V8 ENGINE)
+// ====================================================
+
+// V8 (JavaScript engine used by Chrome and Node.js)
+// optimizes arrays internally.
+
+// It classifies arrays mainly into:
+
+// 1. PACKED Arrays
+// 2. HOLEY Arrays
+
+
+// ====================================================
+//                 PACKED ARRAYS
+// ====================================================
+
+// A PACKED array is an array where every index has
+// a value and there are no empty spaces.
+
+// Example:
+
+// const arr = [10, 20, 30, 40];
+
+// Memory:
+
+// Index:  0    1    2    3
+// Value: 10   20   30   40
+
+
+// V8 knows every index contains data, so accessing
+// elements is faster.
+
+// Example:
+
+// arr[2]
+
+// V8 directly gets the value because index 2 exists.
+
+
+// ====================================================
+//               TYPES OF PACKED ARRAYS
+// ====================================================
+
+
+// 1. PACKED_SMI_ELEMENTS
+
+// SMI = Small Integer
+
+// Only contains integers.
+
+// Example:
+
+// const arr = [1, 2, 3, 4];
+
+
+// ----------------------------------------------------
+
+
+// 2. PACKED_DOUBLE_ELEMENTS
+
+// Contains floating point numbers.
+
+// Example:
+
+// const arr = [1.5, 2.5, 3.5];
+
+
+// ----------------------------------------------------
+
+
+// 3. PACKED_ELEMENTS
+
+// Contains objects, strings, or mixed values.
+
+// Example:
+
+// const arr = [1, "hello", {}];
+
+
+// ====================================================
+//                 HOLEY ARRAYS
+// ====================================================
+
+// A HOLEY array contains empty spaces (missing values).
+
+// Example:
+
+// const arr = [1, , 3];
+
+
+// Memory:
+
+// Index:  0       1       2
+// Value:  1     empty    3
+
+
+// V8 has to perform extra checks:
+
+// - Does this index exist?
+// - Is it empty?
+// - Should it return undefined?
+
+
+// Because of these checks, HOLEY arrays are slower.
+
+
+// ====================================================
+//            HOW HOLEY ARRAYS ARE CREATED
+// ====================================================
+
+
+// 1. Empty array size
+
+// const arr = new Array(5);
+
+
+// Creates:
+
+// [ empty, empty, empty, empty, empty ]
+
+
+// ----------------------------------------------------
+
+
+// 2. Skipping indexes
+
+// const arr = [];
+
+// arr[5] = 10;
+
+
+// Creates:
+
+// [
+//  empty,
+//  empty,
+//  empty,
+//  empty,
+//  empty,
+//  10
+// ]
+
+
+// ----------------------------------------------------
+
+
+// 3. Using delete
+
+// const arr = [1,2,3];
+
+// delete arr[1];
+
+
+// Result:
+
+// [1, empty, 3]
+
+
+// Now the array becomes HOLEY.
+
+
+// ====================================================
+//             PACKED -> HOLEY TRANSITION
+// ====================================================
+
+// Arrays can change their internal type.
+
+// Example:
+
+// let arr = [1,2,3];
+
+
+// Initially:
+
+// PACKED_SMI_ELEMENTS
+
+
+// After:
+
+// delete arr[1];
+
+
+// Becomes:
+
+// HOLEY_SMI_ELEMENTS
+
+
+// Important:
+
+// Once an array becomes HOLEY,
+// it usually does not become PACKED again.
+
+
+// Example:
+
+// let arr = [1,2,3];
+
+// delete arr[1];
+
+// arr[1] = 2;
+
+
+// Still:
+
+// HOLEY_SMI_ELEMENTS
+
+
+// ====================================================
+//           V8 ELEMENT TRANSITION
+// ====================================================
+
+
+// PACKED_SMI_ELEMENTS
+
+//         |
+//         v
+
+// PACKED_DOUBLE_ELEMENTS
+
+//         |
+//         v
+
+// PACKED_ELEMENTS
+
+//         |
+//         v
+
+// HOLEY_ELEMENTS
+
+
+
+// Example:
+
+
+// let arr = [1,2,3];
+
+
+// // Adding decimal
+
+// arr.push(4.5);
+
+// Changes:
+
+// PACKED_SMI_ELEMENTS
+//         ->
+// PACKED_DOUBLE_ELEMENTS
+
+
+
+// // Adding string
+
+// arr.push("hello");
+
+// Changes:
+
+// PACKED_DOUBLE_ELEMENTS
+//         ->
+// PACKED_ELEMENTS
+
+
+
+// // Creating hole
+
+// delete arr[0];
+
+// Changes:
+
+// PACKED_ELEMENTS
+//         ->
+// HOLEY_ELEMENTS
+
+
+
+// ====================================================
+//               V8 DEBUG COMMANDS
+// ====================================================
+
+
+// Run Node with V8 native syntax:
+
+// node --allow-natives-syntax
+
+
+
+// Check array internals:
+
+// %DebugPrint(array)
+
+
+
+// Example:
+
+// const arr = [1,2,3];
+
+// %DebugPrint(arr);
+
+
+// Output:
+
+// elements kind: PACKED_SMI_ELEMENTS
+
+
+
+// Example HOLEY:
+
+// const arr = [1,,3];
+
+// %DebugPrint(arr);
+
+
+// Output:
+
+// elements kind: HOLEY_SMI_ELEMENTS
+
+
+
+// ====================================================
+//                     JSVU
+// ====================================================
+
+// JSVU = JavaScript Version Updater
+
+
+// It allows installing different JavaScript engines:
+
+// - V8
+// - SpiderMonkey
+// - JavaScriptCore
+// - Chakra
+
+
+
+// Install:
+
+// npm install -g jsvu
+
+
+
+// Run:
+
+// jsvu
+
+
+
+// It installs V8 shell called:
+
+// d8
+
+
+
+// Run:
+
+// d8
+
+
+// Then:
+
+// let arr = [1,2,3];
+
+// %DebugPrint(arr);
+
+
+
+// ====================================================
+//              PERFORMANCE PRACTICES
+// ====================================================
+
+
+// Avoid creating holes:
+
+
+// BAD:
+
+// const arr = new Array(1000);
+
+
+// Creates:
+
+// HOLEY array
+
+
+
+// GOOD:
+
+// const arr = [];
+
+// for(let i = 0; i < 1000; i++){
+//     arr.push(0);
+// }
+
+
+// Creates:
+
+// PACKED array
+
+
+
+// Avoid:
+
+// delete arr[index];
+
+
+// Because it creates holes.
+
+
+
+// Better:
+
+// arr[index] = undefined;
+
+
+// The index still exists,
+// so the array remains packed.
+
+
+// ====================================================
+//                 QUICK REVISION
+// ====================================================
+
+
+// PACKED:
+
+// - No empty indexes
+// - Faster
+// - Better V8 optimization
+// - Example: [1,2,3]
+
+
+// HOLEY:
+
+// - Contains empty indexes
+// - Slower
+// - Extra checks required
+// - Example: [1,,3]
+
+
+// Memory Trick:
+
+// PACKED = Every box has something inside
+
+// HOLEY = Some boxes are empty
+
+// ====================================================
+// */
