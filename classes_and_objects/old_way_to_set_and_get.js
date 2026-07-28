@@ -16,7 +16,7 @@ function User(email, password){
         },
         set: function(value){
             this._password = value
-        }
+        } 
     })
 
 }

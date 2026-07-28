@@ -1,0 +1,116 @@
+// =========================================
+// Closures - Practical Uses
+// =========================================
+
+// A closure allows a function to remember
+// variables from its outer scope even after
+// the outer function has finished.
+
+// =========================================
+// 1. Event Listeners
+// =========================================
+
+// Used to remember data between user actions
+// (e.g., button clicks).
+
+function setupButton() {
+    let clicks = 0;
+
+    document.querySelector("button")
+        .addEventListener("click", function () {
+            clicks++;
+            console.log(clicks);
+        });
+}
+
+setupButton();
+/////////////////////////////////
+
+function counter() {
+    let count = 0;
+
+    return function () {
+        count++;
+        console.log(count);
+    };
+}
+
+const clickCounter = counter();
+
+clickCounter(); // 1
+clickCounter(); // 2
+clickCounter(); // 3
+
+
+// =========================================
+// 2. setTimeout() / Fetch API
+// =========================================
+
+// Used in asynchronous code so callbacks
+// remember variables after a delay or API call.
+
+function greet(name) {
+
+    setTimeout(function () {
+        console.log(`Hello ${name}`);
+    }, 2000);
+
+}
+
+greet("Arham");
+
+// Output after 2 seconds:
+// Hello Arham
+
+
+// =========================================
+// 3. Private Variables
+// =========================================
+
+// Used to hide data and allow access only
+// through specific methods.
+
+function createBankAccount() {
+
+    let balance = 1000;
+
+    return {
+
+        deposit(amount) {
+            balance += amount;
+        },
+
+        getBalance() {
+            return balance;
+        }
+
+    };
+}
+
+const account = createBankAccount();
+
+account.deposit(500);
+
+console.log(account.getBalance()); // 1500
+
+// console.log(account.balance); // undefined
+
+
+// =========================================
+// Why Use Closures?
+// =========================================
+
+// • Remember values after a function ends.
+// • Maintain private data.
+// • Support asynchronous operations.
+// • Avoid using global variables.
+// • Build reusable functions.
+
+
+// =========================================
+// One-Liner
+// =========================================
+
+// Closure -> A function that remembers
+// variables from its outer scope even after
+// the outer function has returned.
