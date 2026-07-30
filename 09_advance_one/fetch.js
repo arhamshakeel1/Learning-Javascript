@@ -1,4 +1,23 @@
-// fetch() is a web API that sends an HTTP request
+async function getUserDetails(){
+    try
+    {
+        const response = await fetch('https://jsonplaceholder.typicode.com/users');
+    const data = await response.json();
+    //console.log(data);
+    const Users = data.filter(num => num.id < 3).map((num => num.name));
+    console.log(Users);
+    
+    }
+    catch(error){
+        console.log(error);
+    } 
+    }
+
+    getUserDetails();
+
+
+
+    // fetch() is a web API that sends an HTTP request
 
 // runs inside browser
 
